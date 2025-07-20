@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Anes Abdelkader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 400px;
+            margin: 0 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .carousel-content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .carousel-content h3 {
+            color: #ff6d5a;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-content p {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-content .tech-stack {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+        }
+
+        .carousel-control:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .carousel-control.prev {
+            left: 1rem;
+        }
+
+        .carousel-control.next {
+            right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-container {
+                padding: 1rem;
+            }
+
+            .carousel-item {
+                min-width: 250px;
+            }
+        }
+        .container {
+            display: flex;
+            margin-top: 30px;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+        .services, .info {
+            margin-top: 80px;
+            margin-right: 60px;
+            flex: 1;
+            min-width: 280px; 
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: transparent;
+            border-radius: 8px;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #121e28;
+            color: white;
+            line-height: 1.6;
+        }
+        header {
+            font-family: 'Cairo', sans-serif;
+            padding: 2rem 10%;
+            background-color: #121e28;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #ccc;
+        }
+        .hero {
+            padding: 4rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hero .content h1 {
+            font-size: 2.5rem;
+        }
+        .hero .content p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        .hero .buttons button {
+            padding: 0.8rem 1.5rem;
+            margin-right: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #ff4b2b;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.05); /* خلفية شفافة خفيفة */
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #ff4b2b;
+            color: #fff;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            padding: 4rem 10%;
+            background:transparent;
+            color: #fff;
+        }
+
+        .footer-content h3 {
+            color: #ff6d5a;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-content p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1rem;
+            background: transparent;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 109, 90, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 109, 90, 0);
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            color: #ff6d5a;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 109, 90, 0);
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            color: #ff6d5a;
+            font-size: 1.2rem;
+        }
+
+        .social-link span {
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            /* Header */
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 5%;
+            }
+
+            header h2 {
+                margin: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            h4 {
+                margin: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .subtitle {
+                margin: 0;
+                margin-bottom: 1rem;
+            }
+
+            /* Hero Section */
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 5%;
+            }
+
+            .hero-content {
+                margin-bottom: 2rem;
+            }
+
+            .hero-image {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Services */
+            .services {
+                padding: 1rem 5%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-item {
+                text-align: center;
+            }
+
+            .service-icon {
+                margin: 0 auto;
+            }
+
+            /* Portfolio */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .portfolio-item {
+                margin-bottom: 1rem;
+            }
+
+            /* Contact Section */
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 5%;
+            }
+
+            .contact-form {
+                margin-bottom: 2rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem;
+            }
+
+            .contact-map {
+                margin: 0 auto;
+            }
+
+            #map-container {
+                max-width: 100%;
+                min-height: 300px;
+            }
+
+            /* Footer */
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 2rem 5%;
+            }
+
+            .footer-content > div {
+                margin: 0 auto;
+                max-width: 100%;
+            }
+
+            .contact-details > div {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .social-link {
+                padding: 0.5rem 0.8rem;
+                flex: 1 1 45%;
+                max-width: 150px;
+            }
+
+            .footer-bottom {
+                padding: 1rem;
+            }
+
+            /* General */
+            .btn-primary {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            h2, h3, h4 {
+                margin: 1rem 0;
+            }
+
+            p {
+                margin: 0.5rem 0;
+            }
+        }
+
+        .footer-content > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-content h3 {
+            color: #ff6d5a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-details > div {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #fff;
+        }
+
+        .contact-details i {
+            color: #ff6d5a;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 109, 90, 0.1);
+            color: #ff6d5a;
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            color: #fff;
+        }
+        .skills {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            gap: 1.5rem;
+        }
+        .skills span {
+            color: #888;
+        }
+        .about {
+            padding: 4rem 10%;
+            background-color: #121e28;
+            display: flex;
+            margin-top: -1.5rem;
+            margin-bottom: -5rem;
+            justify-content: space-between;
+        }
+        .about .info {
+            max-width: 50%;
+        }
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .projects {
+            padding: 4rem 10%;
+            background-color: #121e28;
+        }
+        .services {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .services div {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .skill-badge {
+            background-color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .services {
+            margin-top: 80px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 3rem;
+            padding-left: 40px;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: 1px;
+            height: 210px;
+            bottom: 10px;
+            width: 2px;
+            background-color: #ff6d5a;
+        }
+
+        .service-item::after {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #ff6d5a;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: #ff6d5a;
+            border-radius: 50%;
+        }
+
+        .service-icon {
+            width: 32px;
+            height: 32px;    
+        }
+        .stats strong {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .stats .highlight {
+            color: #ff6d5a;
+            font-size: 2.2rem;
+            margin-left: 2px;
+        }
+        .about .info h2 {
+            font-size: 2.2rem; /* زيادة حجم العنوان */
+            margin-bottom: 1rem; /* مسافة بين العنوان والنص */
+        }
+
+        .skills-container h3 {
+            text-align: center;
+            color: #ff6d5a;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .rotating-text {
+            height: 1rem;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .rotating-text span {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            animation: rotateWords 8s linear infinite 0s;
+        }
+
+        .rotating-text span:nth-child(2) { animation-delay: 2s; }
+        .rotating-text span:nth-child(3) { animation-delay: 4s; }
+        .rotating-text span:nth-child(4) { animation-delay: 6s; }
+
+        @keyframes rotateWords {
+            0% { opacity: 0; transform: translateY(100%); }
+            5% { opacity: 1; transform: translateY(0%); }
+            25% { opacity: 1; }
+            30% { opacity: 0; transform: translateY(-100%); }
+            100% { opacity: 0; }
+        }
+        .skills-container-flex {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 2rem 0;
+            background-color: #17232d; 
+            margin-top: -5rem; 
+            margin-bottom: -2.5rem;
+        }
+
+        .portfolio {
+            padding: 5rem 10%;
+            background-color: #121e28;
+        }
+        .portfolio2 {
+            padding: 0rem 10%;
+            background-color: #121e28;
+        }
+
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-section {
+            font-family: 'Cairo', sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: #17232d;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr; /* عمود واحد */
+            }
+            #map-container {
+            width: 600px;
+            margin-left: auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-height: 510px;
+            display: flex;
+            flex-direction: column;
+        }
+            iframe {
+                width: 100%;
+                height: 100%;            }
+        }
+
+        .contact-map {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        #map-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-height: 510px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        #map-container iframe {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        @media (max-width: 768px) {
+  .map-container iframe {
+    height: 250px; /* ارتفاع مناسب للهاتف */
+  }
+}
+        .contact-form {
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-form h3 {
+            font-family: 'Cairo', sans-serif;
+            color: #ff6d5a;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: #121e28;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .form-group input[type="tel"] {
+            direction: ltr;
+            text-align: right;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-map {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-map h3 {
+            font-family: 'Cairo', sans-serif;
+            color: #ff6d5a;
+            margin-bottom: 1.5rem;
+        }
+
+        #map-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item {
+            background: #17232d;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #ff6d5a;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #17232d;
+            padding: 4rem 10% 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            margin-bottom: -5rem;
+            margin-top: -3rem;
+        }
+
+            .footer-content h3 {
+                color: #ff6d5a;
+                margin-bottom: 1rem;
+            }
+
+            .footer-content p {
+                color: #ccc;
+                line-height: 1.6;
+            }
+
+            .contact-details {
+                font-family: 'Cairo', sans-serif;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .location i {
+            color: #ff6d5a;
+            font-size: 1.4rem;
+        }
+
+        .location p {
+            color: #fff;
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .email i, .phone i , .position i {
+            color: #ff6d5a;
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;        }
+
+        .email p, .phone p  {
+            color: #fff;
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .phone-number {
+            direction: ltr;
+        }
+
+        .social-links .social-icons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            background: rgba(23, 35, 45, 0.7); /* شفافية 70% */
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+
+        .social-link i {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .social-link span {
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            background: #121e28;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+            color: #fff;
+            color: #ccc;
+        }
+
+        .social-link span {
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 109, 90, 0.1);
+            color: #ff6d5a;
+            transform: translateY(-2px);
+        }
+
+        .social-link:hover i {
+            color: #ff6d5a;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: #ccc;
+            margin: 0;
+        }
+
+        .skill-block h3 {
+            color: #ff6d5a;
+            text-align: center;
+            margin-top: -1.5rem;
+            margin-bottom: -1.5rem;
+        }
+        .skill-block {
+            text-align: center;
+            margin-top: 20px;
+        }
+        header {
+            padding: 2rem 10%;
+            background-color: #121e28;
+            display: flex;
+            justify-content: center; /* لضبط النص في الجهة اليمنى */
+            align-items: center;
+        }
+
+        header h2 {
+            font-size: 2rem;
+            background-color: #121e28;
+            font-weight: 700;
+            color: white;
+            margin-right: -1.8rem;
+            text-align: center;
+        }
+        h4 {
+            font-size: 2.5rem;
+            font-weight: 250;
+            color: white;
+            margin-left: 2.5rem;
+            text-align: left;
+        }   
+
+        .subtitle {
+            font-size: 1rem;
+            color: #ccc;
+            margin-top: 0.4rem; 
+            margin-right: 0.8rem;
+            text-align: center;
+        }
+        iframe {
+  width: 100%;
+  max-width: 100%;
+  height: 300px;
+  border: 0;
+}
+
+
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #ff6d5a;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .back-to-top i {
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .back-to-top:hover {
+        background: #e35e4a;
+        transform: translateY(-2px) rotate(5deg);
+    }
+
+    .back-to-top:active {
+        transform: translateY(0) rotate(0);
+    }
+    .hero {
+        margin-top: -5rem;
+        margin-bottom: -5rem;
+        align-items: center;
+    }
+    .image img {
+        margin-bottom: 3rem;
+}
+
+/* عند عرض الشاشة أقل من 768px (هاتف) */
+@media (max-width: 768px) {
+    .image img {
+        width: 100%;
+        margin-bottom: 5rem;
+        margin-top: 2rem;
+        height: auto;
+        align-items: center;    
+    }
+    .hero{
+        margin-top: 0.5rem;
+    }
+    .services{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .skill-block{
+            margin-left: center;
+        }
+}    .info{
+    margin-top: 2rem;
+        }
+        .skills-container-flex{
+            align-items: center;
+        }
+        .skill-block{
+            margin-left: -2rem;
+        }
+        .portfolio-categories {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category i {
+            font-size: 2rem;
+            color: #ff6d5a;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ff6d5a;
+        }
+        .carousel-item img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <section class="hero" style="direction: rtl;">
+        <div class="content">
+            <p style="font-weight: 700; font-size: 2rem; color: white; margin-top: -1rem;">
+                مرحبا <span style="color: #ff6d5a;">  ,</span>
+            </p>
+            <div style="display: flex; align-items: center;">
+                <span style="display: inline-block; width: 45px; height: 1px; background-color: #ff6d5a; margin-right: 10px; margin-bottom: -1rem;"></span>
+                <h4 style="margin: 0;">  أنا أنس عبد القادر </h4>
+            </div>
+            
+            <h1><span style="color:#fff; font-weight: 600; font-size: 3.3rem;">مصمم جرافيكي</span>
+            <div class="buttons">
+                <button class="btn-primary" id="whatsapp-btn" style="font-family: 'Cairo', sans-serif;">أطلب مشروع</button>
+                <button class="btn-secondary" id="portfolio-btn" style="font-family: 'Cairo', sans-serif;">أعمالي</button>
+            </div>
+        </div>
+        <div class="image">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR3ETo90ouqCnDV5xkL4mtXCJXZgjhJjTLB9eMEyJPVzJ1kaih2bheQyfTkAOWC0mvmsd5dAkrTs2GdImHJF_GXou5mkcYjkzEy5L9PcE0Ac7MQUhsRyEehIcRYmBcCtqilMzUeLHpOVszo58mpKcxiCFUQWJO36euQm_37cMYQgehIi-B1VW-WSMbx3U/s700/1.png" alt="Lahmar anes abdelkader" style="border-radius: 10px;">
+        </div>
+    </section>
+
+    <div class="skills-container-flex">
+        <div class="skill-block" >
+            <i  class="fas fa-paint-brush" style="color: #ff6d5a; font-size: 2rem; margin-bottom: 3rem;"></i>
+            <h3>Graphic Design</h3>
+            <div class="skills rotating-text">
+                <span>Adobe Photoshop</span>
+                <span>Adobe Illustrator</span>
+                <span>Canva</span>
+                <span>Kelk</span>
+            </div>
+        </div>
+
+        <div class="skill-block">
+            <i class="fas fa-code" style="color: #ff6d5a; font-size: 2rem; margin-bottom: 3rem;"></i>
+            <h3>Programming</h3>
+            <div class="skills rotating-text">
+                <span>Python</span>
+                <span>Java</span>
+                <span>HTML</span>
+                <span>CSS</span>
+            </div>
+        </div>
+    </div>
+    <section class="hero">
+
+    <div class="container">
+        <div class="services">
+            <div class="service-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTzMTLTq6HBarI9Y1hO96INgRoKzKI4fsj5dYrZ_W9tbR0CScamNnOhlhbX9Q0MmgohjAllpiv3mkaFqtjW15rT4csWUVSTGEK6iNvEZ7uW-c-6XNg4eXmx6VIWNhxZL-DQGU3hXH96w6EQfgi7_ZL44y0GOrYdjXUcT7A8RCqqTWk51e7-dF4WXzoZ0Q/s128/customize-computer.png" alt="web dev" class="service-icon">
+                <span>Graphic Design</span>
+            </div>
+            <div class="service-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgt9aQ_0iC0pmD_aVXHaN2uEHwux20OEKdqcBfWwqyY1Wx-QJ9EgtXFfzv3xNKnQ-Kxld0ae_mkjKtQCXJ4SazHuzGe6Qght9p-FIWN0CUewt3nNhSK7BrPSFjhNT-bzAT2rcvs3eMaUx1PiMJUGiSDDjCHHpMM_k0CF-1yLpEDhLs-J4hgY6wqcXQRpU/s128/code-editing.png" alt="app dev" class="service-icon">
+                <span>App Development</span>
+            </div>
+            <div class="service-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaiBbmWobA5IDr2UCLlgT2Q4DA9nTRig-5ejlSEmybOUCZMyZ-8f8Pyzr83NZVLpTZko_iF0OCO6z03u-PRXaYeDNSfuQwf0yMITh0jVZXhlPTzQqgd8xuV1w5n8siKA3tEq3YsFnuWWXYhpqLAcRFH25HCgVNQzUqYM33vtwCFil8gXrlg0PVOiEQJ-g/s512/browser.png" alt="hosting" class="service-icon">
+                <span>Website Development</span>
+            </div>
+        </div>
+        
+        <div class="info">
+            <h2>About me</h2>
+            <p style="text-align: justify;">I started my journey in the world of design through portrait drawing, where I discovered a passion for creating from scratch. This passion eventually led me to the field of software development, as it satisfies my constant curiosity for learning and brings me the joy of building things from nothing.</p>
+            <div class="stats">
+                <div><strong>60<span class="highlight">+</span></strong><br>Completed Projects</div>
+                <div><strong>95<span class="highlight">%</span></strong><br>Client satisfaction</div>
+                <div><strong>5<span class="highlight">+</span></strong><br>Years of experience</div>
+            </div>
+            
+        </div>
+    </div>
+    </section>
+    <section class="portfolio" id="programming-section">
+        <h2 style="text-align: center; margin: 3rem 0; color: #ff6d5a;">Programming Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/46/d0/5d/46d05d8a64686f60bb746ac5ac0e76bb.jpg" alt="Project 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/9e/19/5b/9e195ba8ba803e11d8e6e7372081a767.jpg" alt="Project 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/27/84/1e/27841e4eafd021aeffe38934a7e4fc0e.jpg" alt="Project 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/39/14/9d/39149df4f6e08d4e0758e3a122f4fcec.jpg" alt="Project 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/47/96/5a/47965a6c58149210192c78e5057f03dd.jpg" alt="Project 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/7f/2f/7a/7f2f7ac9409d0cf84e78d2661d240612.jpg" alt="Project 6">
+                </div>
+            </div>
+            <button class="carousel-control prev" onclick="moveCarousel(-1)">←</button>
+            <button class="carousel-control next" onclick="moveCarousel(1)">→</button>
+        </div>
+
+        <h2 style="text-align: center; margin: 3rem 0; color: #ff6d5a;">Design Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/d0/63/14/d06314749345764e1e5d8a9f39270bc9.jpg" alt="Project 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/75/8c/02/758c02159652fdc8e612dbd5af81c21a.jpg" alt="Project 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/d0/a4/4a/d0a44a9ef73083acef7fbeeec2748135.jpg" alt="Project 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/60/61/a0/6061a0ea982b26f7e9a44d8e5a381d48.jpg" alt="Project 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/28/15/43/281543655b51ca0a950a45c988733fb0.jpg" alt="Project 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/5e/85/83/5e858358bd2413d03f1f969533f9f84f.jpg" alt="Project 6">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/2b/0f/d8/2b0fd87b831a42f2387c4ccacc222343.jpg" alt="Project 7">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/d0/5e/61/d05e61f25898e6127e880f4b55265375.jpg" alt="Project 8">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/36/2e/4d/362e4d08913a7bb1ea2e58c8e5b1e32f.jpg" alt="Project 9">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/1e/3b/01/1e3b01865b5bc94ede7f8a532b9cd8d1.jpg" alt="Project 10">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/27/3c/bd/273cbd9c9660d8fb70842d077bc23e95.jpg" alt="Project 11">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/84/2e/71/842e7161300e837ac61aec39ea74ca87.jpg" alt="Project 12">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/7e/88/9e/7e889e9f8e4769a6467ad3b28f1095a0.jpg" alt="Project 13">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/e7/58/e5/e758e5c562c73a151e67568390f4094b.jpg" alt="Project 14">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/e2/d3/8d/e2d38d8b64cc5108642da55f0f36a9d2.jpg" alt="Project 15">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/cd/27/0f/cd270f611d22c94e50dfe1647a2ac12e.jpg" alt="Project 16">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/28/a7/63/28a763e36b237a1fe60da6b420660ec5.jpg" alt="Project 17">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/21/8d/98/218d98b8ac5b7577430cb960b897f7ea.jpg" alt="Project 18">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/04/3f/71/043f71e9579bc474718c82756687b8a9.jpg" alt="Project 19">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/9c/04/2c/9c042c8bce6177ca6534e05a44147b92.jpg" alt="Project 20">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/46/58/b8/4658b8dfda1ec1fdc1429bc648060b7f.jpg" alt="Project 21">
+                </div>                   
+            </div>
+            <button class="carousel-control prev" onclick="moveCarouselDesign(-1)">←</button>
+            <button class="carousel-control next" onclick="moveCarouselDesign(1)">→</button>
+        </div>
+    </section>
+    <section class="portfolio2" style="margin-top: -7rem;">
+        <div class="contact-section" style="direction: rtl;">
+            <div class="contact-form">
+                <h3>تواصل معي</h3>
+                <form target="_blank" action="https://formsubmit.co/anes102a05@gmail.com" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="الاسم واللقب" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="رقم الهاتف" required 
+                            pattern="[0-9\-\*\+\(\)\s]*" 
+                            inputmode="tel"
+                            style="direction: ltr;" 
+                            dir="ltr"
+                            onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||
+                                            event.charCode === 45 ||
+                                            event.charCode === 42 ||
+                                            event.charCode === 43 ||
+                                            event.charCode === 40 ||
+                                            event.charCode === 41 ||
+                                            event.charCode === 32">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="الرسالة" required></textarea>
+                    </div>
+                
+                    <!-- اختياري: لمنع السبام -->
+                    <input type="hidden" name="_captcha" value="false">
+                
+                    <!-- بعد الإرسال، يعيد التوجيه إلى هذه الصفحة -->
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+                
+                    <button type="submit" class="btn-primary" style="
+                        font-family: 'Cairo', sans-serif;
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        border: none;
+                        background: #ff6d5a;
+                        color: #fff;
+                        font-size: 1.1rem;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        width: 100%;
+                    ">
+                        إرسال الرسالة
+                    </button>
+                </form>
+            </div>
+            <div class="contact-map">
+                <h3>الموقع</h3>
+                <div id="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.610974552272!2d0.1020433!3d35.9634477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQ0JzQ2LjYiTiAwwrcwJzA2LjkiVw!5e0!3m2!1sar!2ssa!4v1690014077956!5m2!1sar!2ssa"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+    </section>
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <footer style="direction: rtl;">
+        <div class="footer-content">
+            <div class="about-me">
+                <h3>من أنا</h3>
+                <div class="about-content">
+                    <p style="text-align: justify;">أنا لحمر أنس عبد القادر، مدرب محترف في مجال تصميم الجرافيك بشهادات معتمدة من شركات عالمية، ومبرمج مختص في تطوير تطبيقات الهواتف الذكية.</p>
+                    <p style="text-align: justify;">أسعى دائمًا لصناعة محتوى فعّال يدمج بين الإبداع البصري والابتكار التقني، بما يضمن وصولًا مباشرًا وفعّالًا للجمهور المستهدف.</p>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-details">
+                    <div class="phone">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>الجزائر - مستغانم</p>
+                    </div>
+                    <div class="phone">
+                        <i class="fas fa-envelope"></i>
+                        <p>anes102a05@gmail.com</p>
+                    </div>
+                    <div class="phone">
+                        <i class="fas fa-phone"></i>
+                        <p class="phone-number">+213 561245017</p>
+                    </div>
+                </div>
+            </div>
+            <div class="social-links" style="margin-bottom: 10px;">
+                <h3>اتصل بي</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/lahmar-anes-abdelkader-680412311" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://www.instagram.com/anes_graphicus/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://web.facebook.com/LahmarAnesAek" target="_blank" class="social-link">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://t.me/anes_graphicus" target="_blank" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom" style="direction: ltr;">
+            <p> 2025 لحمر أنس عبد القادر - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get the back-to-top button
+        const backToTopBtn = document.querySelector('.back-to-top');
+
+        // Show/hide the button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top when clicking the button
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add click event listeners to the buttons
+        document.getElementById('portfolio-btn').addEventListener('click', () => {
+            const programmingSection = document.getElementById('programming-section');
+            programmingSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('whatsapp-btn').addEventListener('click', () => {
+            const phoneNumber = '+213561245017';
+            const message = 'مرحباً، أريد استفساراً حول مشروع جديد';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Carousel functionality for Programming
+        let currentIndex = 0;
+        const carousel = document.querySelectorAll('.carousel')[0]; // أول كاروusel
+        const items = carousel.querySelectorAll('.carousel-item');
+        const itemWidth = items[0].offsetWidth + 20; // Adding margin
+    
+        function moveCarousel(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = items.length - 1;
+            if (currentIndex >= items.length) currentIndex = 0;
+            
+            const translateX = -currentIndex * itemWidth;
+            carousel.style.transform = `translateX(${translateX}px)`;
+        }
+    
+        // Auto-scroll every 5 seconds for Programming
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+    
+        // Carousel functionality for Design Projects
+        let designCurrentIndex = 0;
+        const designCarousel = document.querySelectorAll('.carousel')[1]; // ثاني كاروusel
+        const designItems = designCarousel.querySelectorAll('.carousel-item');
+        const designItemWidth = designItems[0].offsetWidth + 20; // Adding margin
+    
+        function moveCarouselDesign(direction) {
+            designCurrentIndex += direction;
+            if (designCurrentIndex < 0) designCurrentIndex = designItems.length - 1;
+            if (designCurrentIndex >= designItems.length) designCurrentIndex = 0;
+            const translateX = -designCurrentIndex * designItemWidth;
+            designCarousel.style.transform = `translateX(${translateX}px)`;
+        }
+    
+        // Auto-scroll every 5 seconds for Design Projects
+        setInterval(() => {
+            moveCarouselDesign(1);
+        }, 5000);
+    </script>
+</body>
+</html>
