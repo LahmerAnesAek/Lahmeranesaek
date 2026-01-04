@@ -4,272 +4,1085 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=1200">
-    <title>لحمر أنس عبد القادر | مصمم جرافيك ومطور تطبيقات</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="مصمم جرافيك ومطور تطبيقات محترف - أنس لحمر">
+    <title>لحمر أنس عبد القادر | ملف اعمال</title>
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Rawasi+Display:wght@400;500;700&family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script type="module" src="script.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="photos/ico.png">
 </head>
+
 <body>
-    <main>
-        <!-- صفحات البطاقة -->
-        <section id="pages" class="card-section">
-            <div class="card-container">
-                <div class="card-header">
-                    <h2 style="margin-top: 1rem;">ملف أعمال</h2>
-                    <div class="card-tabs">
-                        <button class="card-tab active" data-page="profile">من انا</button>
-                        <button class="card-tab" data-page="about">عني</button>
-                        <button class="card-tab" data-page="skills">المهارات</button>
-                        <button class="card-tab" data-page="portfolio">أعمالي</button>
-                        <button class="card-tab" data-page="contact">اتصل بي</button>
-                    </div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <img src="photos/LOGOHOR.png" class="mini-logo" alt="لوغو أنس لحمر">
+            <a class="logo">ملف أعمال - portfolio </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#profile" class="nav-link"><img src="photos/icones menu/profile.png" alt="الرئيسية"
+                            class="nav-icon"><span></span>من أنا</span></a></li>
+                <li><a href="#about" class="nav-link"><img src="photos/icones menu/about.png" alt="عني"
+                            class="nav-icon"><span>عني</span></a></li>
+                <li><a href="#skills" class="nav-link"><img src="photos/icones menu/skills.png" alt="المهارات"
+                            class="nav-icon"><span>المهارات</span></a></li>
+                <li><a href="#portfolio" class="nav-link"><img src="photos/icones menu/portfolio.png" alt="أعمالي"
+                            class="nav-icon"><span>أعمالي</span></a></li>
+                <li><a href="#contact" class="nav-link"><img src="photos/icones menu/contact.png" alt="اتصل بي"
+                            class="nav-icon"><span>اتصل بي</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="profile" class="hero-section">
+        <div class="container hero-container">
+            <img src="photos/background.png"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+            <div class="hero-text animate-on-scroll">
+                <h1>مرحباً، أنا أنس</h1>
+                <p class="hero-subtitle">
+                    أنا <span class="animated-text"><span class="text">مصمم جرافيك</span></span><br>
+                    مصمم جرافيك ومطور تطبيقات محترف
+                </p>
+                <p>أحول الأفكار إلى تجارب رقمية مذهلة</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">تواصل معي</a>
+                    <a href="#portfolio" class="btn btn-outline">تصفح أعمالي</a>
                 </div>
-                <div class="card-pages">
-                    <div class="card-page active" id="profile">
-                        <div class="hero-content">
-                            <div class="hero-text" style=" margin-right: 6rem;">
-                                <h1>مرحباً، أنا أنس</h1>
-                                <p class="typing-text">أنا <span id="typed-text"></span></p>
-                                <p class="hero-subtitle">مصمم جرافيك ومطور تطبيقات محترف</p>
-                                <div class="cta-buttons">
-                                    <a href="#pages" class="btn btn-primary" data-page="contact">تواصل معي</a>
-                                    <a href="#pages" class="btn btn-outline" data-page="portfolio">تصفح أعمالي</a>
-                                </div>
-                                <div class="social-links">
-                                    <a href="https://instagram.com/anes_graphicus" target="_blank"
-                                        aria-label="انستغرام">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                    <a href="https://t.me/anes_graphicus" target="_blank" aria-label="تيليغرام">
-                                        <i class="fab fa-telegram"></i>
-                                    </a>
-                                    <a href="https://wa.me/+213561245017" target="_blank" aria-label="واتساب">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </a>
-                                    <a href="https://facebook.com/lahmaranesaek" target="_blank" aria-label="فيسبوك">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="hero-media">
-                                <div class="hero-image">
-                                    <img src="profile.png" alt="صورة شخصية">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-page" id="about">
-                        <div class="about-content">
-                            <div class="about-text">
-                                <h3>مصمم ومبرمج تطبيقات بخبرة 5+ سنوات</h3>
-                                <p>أنا مصمم جرافيك ومبرمج تطبيقات أهتم بإنشاء تجارب رقمية مذهلة. أمتلك شغفًا كبيرًا
-                                    بتحويل الأفكار الإبداعية إلى واقع ملموس من خلال التصميم والبرمجة.</p>
-                                <div class="info-grid">
-                                    <div class="info-item">
-                                        <span class="info-label">الاسم:</span>
-                                        <span class="info-value">لحمر أنس عبد القادر</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <span class="info-label">البريد الإلكتروني:</span>
-                                        <span class="info-value">anes102a05@gmail.com</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <span class="info-label">الهاتف:</span>
-                                        <span class="info-value">0561245017</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <span class="info-label">العنوان:</span>
-                                        <span class="info-value">مستغانم، الجزائر</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="btn btn-primary">تحميل السيرة الذاتية</a>
-                            </div>
-                            <div class="heroo-image">
-                                <img src="profile.png" alt="صورة شخصية">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-page" id="skills">
-                        <div class="skills-container" style="margin-top: -3rem;">
-                            <div class="skill-category">
-                                <h3><i class="fas fa-paint-brush"></i> التصميم</h3>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Adobe Photoshop</span>
-                                        <span>60%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 60%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Adobe Illustrator</span>
-                                        <span>80%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 80%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Figma</span>
-                                        <span>70%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 70%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Canva</span>
-                                        <span>100%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 100%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Kelk</span>
-                                        <span>100%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 100%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>AutoCAD 3D</span>
-                                        <span>100%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 100%;"></div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="social-icons">
+                    <a href="https://instagram.com/lahmaranesaek" target="_blank" aria-label="انستغرام"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/anes_graphicus" target="_blank" aria-label="تيليجرام"><i
+                            class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/+213561245017" target="_blank" aria-label="واتساب"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/lahmaranesaek" target="_blank" aria-label="فيسبوك"><i
+                            class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="hero-image animate-on-scroll">
+                <img src="photos/profile.png" alt="صورة أنس" loading="lazy">
+            </div>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>من أنا</h2>
+                <p>تعرف عليّ أكثر</p>
+            </div>
 
-                            <div class="skill-category">
-                                <h3><i class="fas fa-code"></i> البرمجة</h3>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>HTML</span>
-                                        <span>100%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 100%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>CSS</span>
-                                        <span>100%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 100%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>JavaScript</span>
-                                        <span>70%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 70%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Java</span>
-                                        <span>80%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 80%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Python</span>
-                                        <span>90%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 90%;"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span>Node.js</span>
-                                        <span>50%</span>
-                                    </div>
-                                    <div class="skill-bar">
-                                        <div class="skill-level" style="width: 50%;"></div>
-                                    </div>
-                                </div>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h3>مرحباً، أنا أنس عبد القادر</h3>
+                    <p> مدرب محترف في تصميم الجرافيك مع شهادات معتمدة من شركات عالمية، ومبرمج
+                        متخصص في تطوير تطبيقات الهواتف الذكية.
 
+                        أهدف إلى إبداع محتوى فعّال يمزج بين الإبداع البصري والابتكار التقني، لضمان تواصل مباشر وفعّال مع
+                        الجمهور المستهدف وتحقيق نتائج ملموسة.</p>
+                    <p>مصمم جرافيك ومطور تطبيقات محترف مع أكثر من 5 سنوات من الخبرة في مجال التصميم والتطوير. أساعد
+                        العملاء على تحويل أفكارهم إلى واقع رقمي مذهل يجمع بين الجماليات والوظائف المثالية.</p>
+
+                    <div class="cards-container">
+                        <div class="card fact-card">
+                            <div class="card-icon">
+                                <i class="fas fa-project-diagram"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card-page" id="portfolio">
-                        <div class="portfolio-filter">
-                            <button class="filter-btn active" data-filter="all">الكل</button>
-                            <button class="filter-btn" data-filter="design">تصميم</button>
-                            <button class="filter-btn" data-filter="web">مواقع إلكترونية</button>
-                            <button class="filter-btn" data-filter="app">تطبيقات</button>
-                        </div>
-                        <div class="portfolio-grid">
-                            <!-- سيتم إضافة الأعمال هنا -->
-                        </div>
-                    </div>
-                    <div class="card-page" id="contact">
-                        <div class="contact-container">
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <div>
-                                        <h3>البريد الإلكتروني</h3>
-                                        <p>anes102a05@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fas fa-phone"></i>
-                                    <div>
-                                        <h3>الهاتف</h3>
-                                        <p>0561245017</p>
-                                    </div>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div>
-                                        <h3>العنوان</h3>
-                                        <p>مستغانم، الجزائر</p>
-                                    </div>
-                                </div>
+                            <div class="fact-number">
+                                <span class="counter" data-target="60">0</span><span class="percentage">+</span>
                             </div>
-                            <form class="contact-form">
-                                <div class="form-group">
-                                    <input type="text" placeholder="الاسم الكامل" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" placeholder="البريد الإلكتروني" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" placeholder="الموضوع">
-                                </div>
-                                <div class="form-group">
-                                    <textarea placeholder="الرسالة" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-                            </form>
+                            <p>مشروع مكتمل</p>
+                        </div>
+
+                        <div class="card fact-card">
+                            <div class="card-icon">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <div class="fact-number">
+                                <span class="counter" data-target="90">0</span><span class="percentage">%</span>
+                            </div>
+                            <p>عملاء سعداء</p>
+                        </div>
+
+                        <div class="card fact-card">
+                            <div class="card-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="fact-number">
+                                <span class="counter" data-target="5">0</span><span class="percentage">+</span>
+                            </div>
+                            <p>سنوات خبرة</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <img src="/photos/background.png"
+            style="position: absolute; left: 0; width: 100%; height: 100%; object-fit: cover;margin-top: -2.3%; opacity: 0.4;">
+        <div class="container">
+            <div class="section-title">
+                <h2>مهاراتي</h2>
+                <p>المهارات والخبرات التي أتمتع بها</p>
+            </div>
+
+            <div class="skills-container">
+                <!-- Design Skills Column -->
+                <div class="skills-column design-skills">
+                    <div class="skills-header">
+                        <i class="fas fa-palette"></i>
+                        <h3>مهارات التصميم</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fi fi-brands-photoshop"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>Adobe Photoshop</h4>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fi fi-brands-illustrator"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>Adobe Illustrator</h4>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <span class="skill-abbr">CANVA</span>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>Canva</h4>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <span class="skill-abbr">K</span>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>Kelk 2010</h4>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <span class="skill-abbr">A cad</span>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>AutoCAD 3D</h4>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fi fi-brands-figma"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>Figma</h4>
+                                    <span>100%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Skills Column -->
+                <div class="skills-column programming-skills">
+                    <div class="skills-header">
+                        <i class="fas fa-code"></i>
+                        <h3>مهارات البرمجة</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>HTML5 & CSS3</h4>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>JavaScript</h4>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>Java</h4>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>Node.js</h4>
+                                    <span>78%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 78%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-header">
+                                    <h4>PHP</h4>
+                                    <span>82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 82%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>معرض أعمالي</h2>
+                <p>أحدث المشاريع التي قمت بها</p>
+            </div>
+
+            <div class="pages-nav">
+                <button class="page-btn active" data-page="1"> شعارات وهويات بصرية</button>
+                <button class="page-btn" data-page="2">تصاميم سوشل ميديا</button>
+                <button class="page-btn" data-page="3">دورات تكوينية</button>
+                <button class="page-btn" data-page="4">مواقع إلكترونية</button>
+                <button class="page-btn" data-page="5">تطبيقات الهواتف</button>
+                <button class="page-btn" data-page="6">تطبيقات سطح المكتب</button>
+            </div>
+
+            <!-- الصفحات -->
+            <div class="pages-wrapper">
+
+                <!-- صفحة 1 -->
+                <div class="page active" id="page-1">
+                    <div class="scroll-gallery">
+                        <div class="slider-container">
+                            <div class="slide"><img src="photos/page1/1.png" alt="صورة 1"></div>
+                            <div class="slide"><img src="photos/page1/2.png" alt="صورة 2"></div>
+                            <div class="slide"><img src="photos/page1/3.png" alt="صورة 3"></div>
+                            <div class="slide"><img src="photos/page1/4.png" alt="صورة 4"></div>
+                            <div class="slide"><img src="photos/page1/5.png" alt="صورة 5"></div>
+                            <div class="slide"><img src="photos/page1/6.png" alt="صورة 6"></div>
+                            <div class="slide"><img src="photos/page1/7.png" alt="صورة 7"></div>
+                            <div class="slide"><img src="photos/page1/8.png" alt="صورة 8"></div>
+                            <div class="slide"><img src="photos/page1/9.png" alt="صورة 9"></div>
+                            <div class="slide"><img src="photos/page1/10.png" alt="صورة 10"></div>
+                            <div class="slide"><img src="photos/page1/1.png" alt="صورة 11"></div>
+                            <div class="slide"><img src="photos/page1/12.png" alt="صورة 12"></div>
+                            <div class="slide"><img src="photos/page1/13.png" alt="صورة 13"></div>
+                            <div class="slide"><img src="photos/page1/14.png" alt="صورة 14"></div>
+                            <div class="slide"><img src="photos/page1/15.png" alt="صورة 15"></div>
+                            <div class="slide"><img src="photos/page1/16.png" alt="صورة 16"></div>
+                            <div class="slide"><img src="photos/page1/17.png" alt="صورة 17"></div>
+                            <div class="slide"><img src="photos/page1/18.png" alt="صورة 18"></div>
+                            <div class="slide"><img src="photos/page1/19.png" alt="صورة 19"></div>
+                            <div class="slide"><img src="photos/page1/20.png" alt="صورة 20"></div>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev-btn">❮</button>
+                            <button class="next-btn">❯</button>
+                        </div>
+                        <div class="dots-container"></div>
+                    </div>
+                </div>
+
+                <!-- صفحة 2 -->
+                <div class="page" id="page-2">
+                    <div class="scroll-gallery">
+                        <div class="slider-container">
+                            <div class="slide"><img src="photos/page2/1.png" alt="صورة 1"></div>
+                            <div class="slide"><img src="photos/page2/2.png" alt="صورة 2"></div>
+                            <div class="slide"><img src="photos/page2/3.png" alt="صورة 3"></div>
+                            <div class="slide"><img src="photos/page2/4.png" alt="صورة 4"></div>
+                            <div class="slide"><img src="photos/page2/5.png" alt="صورة 5"></div>
+                            <div class="slide"><img src="photos/page2/6.png" alt="صورة 6"></div>
+                            <div class="slide"><img src="photos/page2/7.png" alt="صورة 7"></div>
+                            <div class="slide"><img src="photos/page2/8.png" alt="صورة 8"></div>
+                            <div class="slide"><img src="photos/page2/9.png" alt="صورة 9"></div>
+                            <div class="slide"><img src="photos/page2/10.png" alt="صورة 10"></div>
+                            <div class="slide"><img src="photos/page2/11.png" alt="صورة 11"></div>
+                            <div class="slide"><img src="photos/page2/12.png" alt="صورة 12"></div>
+                            <div class="slide"><img src="photos/page2/13.png" alt="صورة 13"></div>
+                            <div class="slide"><img src="photos/page2/14.png" alt="صورة 14"></div>
+                            <div class="slide"><img src="photos/page2/15.png" alt="صورة 15"></div>
+                            <div class="slide"><img src="photos/page2/16.png" alt="صورة 16"></div>
+                            <div class="slide"><img src="photos/page2/17.png" alt="صورة 17"></div>
+                            <div class="slide"><img src="photos/page2/18.png" alt="صورة 18"></div>
+                            <div class="slide"><img src="photos/page2/19.png" alt="صورة 19"></div>
+                            <div class="slide"><img src="photos/page2/20.png" alt="صورة 20"></div>
+                            <div class="slide"><img src="photos/page2/21.png" alt="صورة 21"></div>
+                            <div class="slide"><img src="photos/page2/22.png" alt="صورة 22"></div>
+                            <div class="slide"><img src="photos/page2/23.png" alt="صورة 23"></div>
+                            <div class="slide"><img src="photos/page2/24.png" alt="صورة 24"></div>
+                            <div class="slide"><img src="photos/page2/25.png" alt="صورة 25"></div>
+                            <div class="slide"><img src="photos/page2/26.png" alt="صورة 26"></div>
+                            <div class="slide"><img src="photos/page2/27.png" alt="صورة 27"></div>
+                            <div class="slide"><img src="photos/page2/28.png" alt="صورة 28"></div>
+                            <div class="slide"><img src="photos/page2/29.png" alt="صورة 29"></div>
+                            <div class="slide"><img src="photos/page2/30.png" alt="صورة 30"></div>
+                            <div class="slide"><img src="photos/page2/31.png" alt="صورة 31"></div>
+                            <div class="slide"><img src="photos/page2/32.png" alt="صورة 32"></div>
+                            <div class="slide"><img src="photos/page2/33.png" alt="صورة 33"></div>
+                            <div class="slide"><img src="photos/page2/34.png" alt="صورة 34"></div>
+                            <div class="slide"><img src="photos/page2/35.png" alt="صورة 35"></div>
+                            <div class="slide"><img src="photos/page2/36.png" alt="صورة 36"></div>
+                            <div class="slide"><img src="photos/page2/37.png" alt="صورة 37"></div>
+                            <div class="slide"><img src="photos/page2/38.png" alt="صورة 38"></div>
+                            <div class="slide"><img src="photos/page2/39.png" alt="صورة 39"></div>
+                            <div class="slide"><img src="photos/page2/40.png" alt="صورة 40"></div>
+                            <div class="slide"><img src="photos/page2/41.png" alt="صورة 41"></div>
+                            <div class="slide"><img src="photos/page2/42.png" alt="صورة 42"></div>
+                            <div class="slide"><img src="photos/page2/43.png" alt="صورة 43"></div>
+                            <div class="slide"><img src="photos/page2/44.png" alt="صورة 44"></div>
+                            <div class="slide"><img src="photos/page2/45.png" alt="صورة 45"></div>
+                            <div class="slide"><img src="photos/page2/46.png" alt="صورة 46"></div>
+                            <div class="slide"><img src="photos/page2/47.png" alt="صورة 47"></div>
+                            <div class="slide"><img src="photos/page2/48.png" alt="صورة 48"></div>
+                            <div class="slide"><img src="photos/page2/49.png" alt="صورة 49"></div>
+                            <div class="slide"><img src="photos/page2/50.png" alt="صورة 50"></div>
+                            <div class="slide"><img src="photos/page2/51.png" alt="صورة 51"></div>
+                            <div class="slide"><img src="photos/page2/52.png" alt="صورة 52"></div>
+                            <div class="slide"><img src="photos/page2/53.png" alt="صورة 53"></div>
+                            <div class="slide"><img src="photos/page2/54.png" alt="صورة 54"></div>
+                            <div class="slide"><img src="photos/page2/55.png" alt="صورة 55"></div>
+                            <div class="slide"><img src="photos/page2/56.png" alt="صورة 56"></div>
+                            <div class="slide"><img src="photos/page2/57.png" alt="صورة 57"></div>
+                            <div class="slide"><img src="photos/page2/58.png" alt="صورة 58"></div>
+                            <div class="slide"><img src="photos/page2/59.png" alt="صورة 59"></div>
+                            <div class="slide"><img src="photos/page2/60.png" alt="صورة 60"></div>
+                            <div class="slide"><img src="photos/page2/61.png" alt="صورة 61"></div>
+                            <div class="slide"><img src="photos/page2/62.png" alt="صورة 62"></div>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev-btn">❮</button>
+                            <button class="next-btn">❯</button>
+                        </div>
+                        <div class="dots-container"></div>
+                    </div>
+                </div>
+
+                <!-- صفحة 3 -->
+                <div class="page" id="page-3">
+                    <div class="scroll-gallery">
+                        <div class="slider-container">
+                            <div class="slide"><img src="photos/page3/1.png" alt="صورة 1"></div>
+                            <div class="slide"><img src="photos/page3/2.png" alt="صورة 2"></div>
+                            <div class="slide"><img src="photos/page3/3.png" alt="صورة 3"></div>
+                            <div class="slide"><img src="photos/page3/4.png" alt="صورة 3"></div>
+
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev-btn">❮</button>
+                            <button class="next-btn">❯</button>
+                        </div>
+                        <div class="dots-container"></div>
+                    </div>
+                </div>
+
+                <!-- صفحة 4 -->
+                <div class="page" id="page-4">
+                    <div class="scroll-gallery">
+                        <div class="slider-container">
+                            <div class="slide"><img src="photos/page4/1.png" alt="صورة 1"></div>
+                            <div class="slide"><img src="photos/page4/2.png" alt="صورة 2"></div>
+                            <div class="slide"><img src="photos/page4/3.png" alt="صورة 3"></div>
+                            <div class="slide"><img src="photos/page4/4.png" alt="صورة 4"></div>
+                            <div class="slide"><img src="photos/page4/5.png" alt="صورة 5"></div>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev-btn">❮</button>
+                            <button class="next-btn">❯</button>
+                        </div>
+                        <div class="dots-container"></div>
+                    </div>
+                </div>
+
+                <!-- صفحة 5 -->
+                <div class="page" id="page-5">
+                    <div class="scroll-gallery">
+                        <div class="slider-container">
+                            <div class="slide"><img src="photos/page5/1.png" alt="صورة 1"></div>
+                            <div class="slide"><img src="photos/page5/2.png" alt="صورة 2"></div>
+                            <div class="slide"><img src="photos/page5/3.png" alt="صورة 3"></div>
+                            <div class="slide"><img src="photos/page5/4.png" alt="صورة 4"></div>
+                            <div class="slide"><img src="photos/page5/5.png" alt="صورة 5"></div>
+                            <div class="slide"><img src="photos/page5/6.png" alt="صورة 6"></div>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev-btn">❮</button>
+                            <button class="next-btn">❯</button>
+                        </div>
+                        <div class="dots-container"></div>
+                    </div>
+                </div>
+
+                <!-- صفحة 6 -->
+                <div class="page" id="page-6">
+                    <div class="scroll-gallery">
+                        <div class="slider-container">
+                            <div class="slide"><img src="photos/page6/1.png" alt="صورة 1"></div>
+                            <div class="slide"><img src="photos/page6/2.png" alt="صورة 2"></div>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev-btn">❮</button>
+                            <button class="next-btn">❯</button>
+                        </div>
+                        <div class="dots-container"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <img src="/photos/background.png"
+            style="position: absolute; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+
+        <div class="container">
+            <div class="section-title">
+                <h2>تواصل معي</h2>
+                <p>للاستفسار أو طلب خدمة</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-content-wrapper">
+                    <!-- نصف المعلومات ووسائل التواصل -->
+                    <div class="contact-info animate-on-scroll">
+                        <h3>لنتحدث عن مشروعك</h3>
+                        <p>هل لديك مشروع تريد مناقشته؟ لا تتردد في التواصل معي عبر أي من الطرق التالية:</p>
+
+                        <div class="contact-methods-row">
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>البريد الإلكتروني</h4>
+                                    <a href="mailto:anes102a05@gmail.com">anes102a05@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>الهاتف / واتساب</h4>
+                                    <a href="tel:+213561245017">+213561245017</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>العنوان</h4>
+                                    <p>مستغانم، الجزائر</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <p>تابعني على وسائل التواصل الاجتماعي:</p>
+                            <div class="social-icons">
+                                <a href="https://wa.me/+213561245017" target="_blank" aria-label="واتساب">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://t.me/anes_graphicus" target="_blank" aria-label="تيليجرام">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="https://instagram.com/lahmaranesaek" target="_blank" aria-label="انستغرام">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/lahmaranesaek" target="_blank" aria-label="فيسبوك">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://discord.com/users/lahmaranesaek" target="_blank" aria-label="ديسكورد">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                                <a href="https://www.threads.net/lahmaranesaek" target="_blank" aria-label="ثريدز">
+                                    <i class="fa-brands fa-threads"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- نصف الرسالة والخريطة -->
+                    <div class="contact-right animate-on-scroll">
+                        <form class="contact-form" id="contactForm" method="post" action="send_mail.php">
+                            <h3>أرسل لي رسالة</h3>
+                            <p>سأرد عليك في أقرب وقت ممكن</p>
+
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required>
+                                <label for="name">الاسم الكامل</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">البريد الإلكتروني</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" required>
+                                <label for="subject">الموضوع</label>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <label for="message">الرسالة</label>
+                            </div>
+
+                            <button type="submit">
+                                <span>إرسال الرسالة</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105434.29920615233!2d0.0916803!3d35.9333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDU2JzAwLjAiTiAwwrAwNSczMC4wIkU!5e0!3m2!1sen!2sdz!4v1640000000000!5m2!1sen!2sdz"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-icon">✓</div>
+                <h3>تم إرسال الرسالة بنجاح!</h3>
+                <p style="font-size: medium;">شكراً لتواصلك معنا. سنرد عليك في أقرب وقت ممكن.</p>
+                <button class="modal-button">حسناً</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="photos/background.png"
+                    style="position: absolute;z-index: 0; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+
+                <div class="footer-about" style="z-index: 1">
+                    <div class="footer-logo">لحمر أنس عبد القادر</div>
+                    <p>مصمم جرافيك ومطور تطبيقات محترف، أهلاً بكم في موقعي الشخصي حيث يمكنكم رؤية أعمالي ومهاراتي في
+                        مجال التصميم والبرمجة.</p>
+                    <p id="visitorCount">
+                        <i class="fas fa-eye"></i>
+                        أنت الزائر رقم <span>...</span>
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <ul class="footer-nav">
+                            <li><a href="#profile"><img src="photos/icones menu/profile.png" alt="من أنا"
+                                        class="menu-icon"> من أنا</a></li>
+                            <li><a href="#about"><img src="photos/icones menu/about.png" alt="عني" class="menu-icon">
+                                    عني</a></li>
+                            <li><a href="#skills"><img src="photos/icones menu/skills.png" alt="مهاراتي"
+                                        class="menu-icon"> مهاراتي</a></li>
+                            <li><a href="#portfolio"><img src="photos/icones menu/portfolio.png" alt="أعمالي"
+                                        class="menu-icon"> أعمالي</a></li>
+                            <li><a href="#contact"><img src="photos/icones menu/contact.png" alt="اتصل بي"
+                                        class="menu-icon"> اتصل بي</a></li>
+                        </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>معلومات التواصل</h4>
+                    <div class="contact-info" style="z-index: 2">
+                        <p><i class="fas fa-envelope" style="z-index: 3"></i> <a href="mailto:contact@example.com"
+                                style="z-index: 3">anes102a05@gmail.com</a>
+                        </p>
+                        <p><i class="fas fa-phone" style="z-index: 3"></i> <a href="tel:+213561245017"
+                                style="z-index: 3">+213561245017</a>
+                        </p>
+                        <p><i class="fas fa-map-marker-alt" style="z-index: 3"></i> <a
+                                href="https://www.google.com/maps?ll=35.933333,0.091667&z=11&t=m&hl=en&gl=DZ&mapclient=embed"
+                                target="_blank" class="location-link" style="z-index: 3">الجزائر - مستغانم</a></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-social">
+                                <a href="https://wa.me/+213561245017" target="_blank" aria-label="واتساب">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://t.me/anes_graphicus" target="_blank" aria-label="تيليجرام">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="https://instagram.com/lahmaranesaek" target="_blank" aria-label="انستغرام">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://facebook.com/lahmaranesaek" target="_blank" aria-label="فيسبوك">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://discord.com/users/lahmaranesaek" target="_blank" aria-label="ديسكورد">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                                <a href="https://www.threads.net/lahmaranesaek" target="_blank" aria-label="ثريدز">
+                                    <i class="fa-brands fa-threads"></i>
+                                </a>
+            </div>
+            <div class="footer-bottom">
+                <p style="font-size: large;">لحمر أنس عبد القادر، جميع الحقوق محفوظة © <span id="current-year"></span>
+                </p>
+            </div>
+        </div>
+        <script>
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+        </script>
+
+
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTop" class="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- WhatsApp Float Button -->
+        <a href="https://wa.me/+213561245017" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+
+
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script>
+            // Initialize EmailJS with your public key
+            (function () {
+                emailjs.init("UW5Ddo0HQAV7Oo9NH"); // تأكد من صحة معرف المستخدم
+            })();
+
+            // Get the modal elements
+            const modal = document.getElementById('successModal');
+            const closeModal = document.querySelector('.close-modal');
+            const modalButton = document.querySelector('.modal-button');
+            const modalTitle = modal.querySelector('h3');
+            const modalMessage = modal.querySelector('p');
+            const modalIcon = modal.querySelector('.modal-icon');
+
+            // Function to show modal with custom message and type (success/error)
+            function showModal(title, message, isSuccess = true) {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modalIcon.textContent = isSuccess ? '✓' : '!';
+                modalIcon.className = 'modal-icon ' + (isSuccess ? 'success' : 'error');
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Function to hide modal
+            function hideModal() {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Close modal when clicking the X or the button
+            closeModal.onclick = hideModal;
+            modalButton.onclick = hideModal;
+
+            // Close when clicking outside the modal
+            window.onclick = function (event) {
+                if (event.target === modal) {
+                    hideModal();
+                }
+            };
+
+            // Handle form submission
+            document.addEventListener('DOMContentLoaded', function () {
+                const contactForm = document.getElementById('contactForm');
+
+                if (contactForm) {
+                    contactForm.addEventListener('submit', function (event) {
+                        event.preventDefault();
+
+                        // Show loading state
+                        const submitButton = this.querySelector('button[type="submit"]');
+                        const originalButtonText = submitButton.innerHTML;
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جارٍ الإرسال...';
+
+                        // Send email using EmailJS
+                        emailjs.sendForm('service_2jo6y9n', 'template_8fdo5nc', this)
+                            .then(function (response) {
+                                console.log('SUCCESS!', response.status, response.text);
+                                showModal('تم الإرسال بنجاح!', 'شكراً لتواصلك معنا. سنرد عليك في أقرب وقت ممكن.', true);
+                                contactForm.reset();
+                            }, function (error) {
+                                console.error('FAILED...', error);
+                                showModal('حدث خطأ', 'عذراً، لم يتم إرسال الرسالة. يرجى المحاولة مرة أخرى لاحقاً.', false);
+                            })
+                            .finally(function () {
+                                submitButton.disabled = false;
+                                submitButton.innerHTML = originalButtonText;
+                            });
+                    });
+                }
+            });
+        </script>
+        <script>
+            const whatsappBtn = document.querySelector('.whatsapp-float');
+            const portfolio = document.querySelector('#portfolio');
+
+            function toggleWhatsapp() {
+                const portfolioTop = portfolio.offsetTop;
+                const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+                if (scrollPosition >= portfolioTop) {
+                    // بعد الوصول إلى البورتفوليو
+                    whatsappBtn.classList.add('show');
+                } else {
+                    // قبل البورتفوليو
+                    whatsappBtn.classList.remove('show');
+                }
+            }
+
+            window.addEventListener('scroll', toggleWhatsapp);
+        </script>
+
+        <!-- Slider JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const buttons = document.querySelectorAll(".page-btn");
+                const pages = document.querySelectorAll(".page");
+
+                // Auto-slide configuration
+                const AUTO_SLIDE_INTERVAL = 5000; // 5 seconds
+
+                // Initialize sliders for each page
+                function initSliders() {
+                    document.querySelectorAll('.page').forEach((page) => {
+                        const slider = page.querySelector('.slider-container');
+                        const slides = page.querySelectorAll('.slide');
+                        const prevBtn = page.querySelector('.prev-btn');
+                        const nextBtn = page.querySelector('.next-btn');
+                        const dotsContainer = page.querySelector('.dots-container');
+
+                        if (!slider || slides.length === 0) return;
+
+                        let currentSlide = 0;
+                        const totalSlides = slides.length;
+                        let slideInterval;
+                        let isHovered = false;
+
+                        // Create dots
+                        if (totalSlides > 1) {
+                            dotsContainer.innerHTML = '';
+                            slides.forEach((_, idx) => {
+                                const dot = document.createElement('div');
+                                dot.classList.add('dot');
+                                if (idx === 0) dot.classList.add('active');
+                                dot.addEventListener('click', () => goToSlide(idx));
+                                dotsContainer.appendChild(dot);
+                            });
+                        } else {
+                            // Hide navigation if only one slide
+                            if (prevBtn) prevBtn.classList.add('hidden');
+                            if (nextBtn) nextBtn.classList.add('hidden');
+                            if (dotsContainer) dotsContainer.classList.add('hidden');
+                        }
+
+                        // Update slider position
+                        function updateSlider() {
+                            // For RTL, we use positive translation
+                            slider.style.transform = `translateX(${currentSlide * 100}%)`;
+
+                            // Update dots
+                            const dots = page.querySelectorAll('.dot');
+                            dots.forEach((dot, idx) => {
+                                dot.classList.toggle('active', idx === currentSlide);
+                            });
+
+                            // Update navigation buttons visibility
+                            if (prevBtn) {
+                                if (currentSlide === 0) {
+                                    prevBtn.classList.add('hidden');
+                                } else {
+                                    prevBtn.classList.remove('hidden');
+                                }
+                            }
+
+                            if (nextBtn) {
+                                if (currentSlide === totalSlides - 1) {
+                                    nextBtn.classList.add('hidden');
+                                } else {
+                                    nextBtn.classList.remove('hidden');
+                                }
+                            }
+
+                            // Add transition for smooth sliding
+                            slider.style.transition = 'transform 0.5s ease-in-out';
+                        }
+
+                        // Go to specific slide
+                        function goToSlide(slideIndex) {
+                            // Pause auto-slide when manually changing slides
+                            pauseAutoSlide();
+
+                            // Update slide
+                            currentSlide = slideIndex;
+                            updateSlider();
+
+                            // Resume auto-slide after a delay
+                            if (!isHovered) {
+                                setTimeout(startAutoSlide, AUTO_SLIDE_INTERVAL * 2);
+                            }
+                        }
+
+                        // Start auto-slide
+                        function startAutoSlide() {
+                            if (slideInterval) clearInterval(slideInterval);
+                            if (totalSlides <= 1) return;
+
+                            slideInterval = setInterval(() => {
+                                if (!isHovered) {
+                                    nextSlide();
+                                }
+                            }, AUTO_SLIDE_INTERVAL);
+                        }
+
+                        // Pause auto-slide
+                        function pauseAutoSlide() {
+                            if (slideInterval) {
+                                clearInterval(slideInterval);
+                                slideInterval = null;
+                            }
+                        }
+
+                        // Go to next slide
+                        function nextSlide() {
+                            currentSlide = (currentSlide + 1) % totalSlides;
+                            updateSlider();
+                        }
+
+                        // Go to previous slide
+                        function prevSlide() {
+                            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                            updateSlider();
+                        }
+
+                        // Event listeners for navigation
+                        if (prevBtn) {
+                            prevBtn.addEventListener('click', () => {
+                                prevSlide();
+                            });
+                        }
+
+                        if (nextBtn) {
+                            nextBtn.addEventListener('click', () => {
+                                nextSlide();
+                            });
+                        }
+
+                        // Touch events for mobile
+                        let touchStartX = 0;
+                        let touchEndX = 0;
+
+                        slider.addEventListener('touchstart', (e) => {
+                            touchStartX = e.touches[0].clientX;
+                        });
+
+                        slider.addEventListener('touchend', (e) => {
+                            touchEndX = e.changedTouches[0].clientX;
+                            handleSwipe();
+                        });
+
+                        function handleSwipe() {
+                            const swipeThreshold = 50;
+                            const swipeDistance = touchEndX - touchStartX;
+
+                            if (Math.abs(swipeDistance) < swipeThreshold) return;
+
+                            if (swipeDistance > 0) {
+                                // Swipe right - go to previous slide
+                                prevSlide();
+                            } else {
+                                // Swipe left - go to next slide
+                                nextSlide();
+                            }
+                        }
+
+                        // Initialize the slider
+                        updateSlider();
+
+                        // Add hover events to pause auto-slide
+                        const gallery = page.querySelector('.scroll-gallery');
+                        if (gallery) {
+                            gallery.addEventListener('mouseenter', () => {
+                                isHovered = true;
+                                pauseAutoSlide();
+                            });
+
+                            gallery.addEventListener('mouseleave', () => {
+                                isHovered = false;
+                                startAutoSlide();
+                            });
+                        }
+
+                        // Start auto-slide if more than one slide
+                        if (totalSlides > 1) {
+                            startAutoSlide();
+                        }
+                    });
+                }
+
+                // Initialize sliders on page load
+                initSliders();
+
+                // Function to handle page navigation
+                function navigateToPage(pageNumber) {
+                    // Update active states
+                    buttons.forEach(btn => {
+                        btn.classList.toggle("active", btn.dataset.page === pageNumber.toString());
+                    });
+
+                    pages.forEach(page => {
+                        const isActive = page.id === `page-${pageNumber}`;
+                        page.classList.toggle("active", isActive);
+                    });
+                }
+
+                // Add click event listeners to buttons
+                buttons.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const pageNumber = btn.dataset.page;
+                        navigateToPage(pageNumber);
+                        // Re-initialize sliders after page change
+                        setTimeout(initSliders, 50);
+                    });
+                });
+
+                // Initialize first page
+                navigateToPage(1);
+            });
+        </script>
+
 </body>
+
 </html>
